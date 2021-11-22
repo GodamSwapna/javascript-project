@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Application</title>
+    <style>
+        input,button{
+            padding: 7px;
+            height: 40px;
+        }
+        fieldset{
+            margin-bottom: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Todo Application</h2>
+    <fieldset>
+        <legend>Insert Data</legend>
+        <input id="inputkey" type="text" placeholder="Enter key...">
+        <input id="inputvalue" type="text" placeholder="Enter value...">
+        <button type="button" id="bottonIns">Insert Data</button>
+    </fieldset>
+    <fieldset>
+        <legend>Output</legend>
+        <div id="Output"></div>
+    </fieldset>
+    
+</body>
+<script type="text/javascript">
+    const inputkey=document.getElementById("inputkey");
+    const inputvalue=document.getElementById("inputvalue");
+    const bottonIns=document.getElementById("bottonIns");
+    const Output=document.getElementById("Output");
+
+    bottonIns.onclick=function(){
+        const key=inputkey.value;
+        const value=inputvalue.value
+        if (key && value){
+            localStorage.setItem(key,value);
+            location.reload();
+        }
+    }
+    for(let i=0;i<localStorage;i++){
+        const key=localStorage.key(i);
+        const value=localStorage.getItem(key);
+        Output.innerHTML+='${key}:${value}<br/>';
+    }
+   
+
+</script>
+</html> 
+
